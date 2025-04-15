@@ -1,20 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Forum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            font-family: "Mulish", sans-serif;
+            font-optical-sizing: auto;
+        }
+    </style>
 </head>
-<body>
+
+<body class="mx-2 lg:mx-35 my-8">
     <header>
-        <h1>hellow</h1>
+        <nav>
+            <div class="navbar bg-base-100 shadow-sm">
+                <div class="flex-1">
+                    <a class="btn btn-ghost text-xl lg:text-3xl font-extrabold">ReTro</a>
+                </div>
+                <div class="flex-none">
+                    <ul class="menu menu-horizontal px-1 gap-1 lg:gap-4">
+                        <div class="tooltip" data-tip="Home">
+                            <button class="btn rounded-full"><i class="fa-sharp fa-solid fa-house"></i></button>
+                        </div>
+                        <div class="tooltip" data-tip="SMS">
+                            <button class="btn rounded-full"><i class="fa-solid fa-pencil"></i></button>
+                        </div>
+                        <div class="tooltip" data-tip="Contact">
+                            <button class="btn rounded-full"><i class="fa-solid fa-user"></i></button>
+                        </div>
+                        <div class="tooltip" data-tip="Language">
+                            <button class="btn rounded-full"><i class="fa-solid fa-flag"></i></button>
+                        </div>
+                        <button class="btn bg-sky-400 text-white rounded-full">Sign In</button>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div
+            class="h-50 lg:h-120 rounded-xl bg-slate-900 bg-no-repeat bg-center bg-cover bg-[url(/images/bgbanner.png)] my-8 w-full p-8 flex justify-around items-center">
+            <div>
+                <h1 class="text-white text-xl lg:text-5xl font-extrabold mb-4">Welcome to the <br><span
+                        class="text-blue-300">Retro</span> Forum</h1>
+                <p class="text-gray-400 mb-4">Share your favorite opinion and win and wp forum coffee mug!</p>
+                <div class="join">
+                    <div>
+                        <label class="input validator join-item">
+                            <input id="search-post" type="text" placeholder="Search here anything" required />
+                        </label>
+                        <div class="validator-hint hidden">Enter valid email address</div>
+                    </div>
+                    <button onclick="handleBtn()" class="btn btn-neutral join-item bg-sky-400">Search</button>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 w-70 h-40 flex justify-between font-bold rounded-xl ">
+                <ul>
+                    <li>Registered user </li>
+                    <li>Forum </li>
+                    <li>Topics</li>
+                    <li>Reply </li>
+                </ul>
+                <ul>
+                    <li>01</li>
+                    <li>05</li>
+                    <li>01</li>
+                    <li>01</li>
+                </ul>
+            </div>
+        </div>
     </header>
     <main>
+        <section>
+            <div class="flex flex-col items-center">
+                <h1 class="text-4xl font-extrabold mb-4">Let's Discuss</h1>
+                <p class="text-gray-600 ">Yes, you can run unit tests and view the results directly within the app. Theintegrated testing features allow for a streamlined .</p>
+            </div>
+            <div class="my-8 flex justify-between" id="post-container">
+                <div id="post-card" class="">
 
+                </div>
+                <div id="seen-post-div" class="bg-gray-200 rounded-xl p-4 w-1/3">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-bold">Title</h2>
+                        <p class="text-gray-600">Mark as read (<span id="mark-as-read">0</span>)</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
     </main>
     <footer>
 
     </footer>
-    <script src="js/main.js"></script>
+    <script src="js/post.js"></script>
 </body>
+
 </html>
