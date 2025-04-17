@@ -6,15 +6,13 @@ const loadPost = async (searchText) => {
 }
 const displayPost = allPost => {
     const postContainer = document.getElementById('post-container');
-
+    const seenPostdiv =document.getElementById('seen-post-div');
+    
     // clear previous data to load new data
-       
-
-    const seenPostdiv =document.getElementById('seen-post-div')
 
     allPost.forEach(post => {
+        
         console.log(post);
-
         const postCard = document.getElementById('post-card');
         const postCards = document.createElement('div');
         postCards.classList = `hover:border-2 border-sky-300 rounded-xl p-4 mt-4 shadow-sm`
@@ -43,10 +41,8 @@ const displayPost = allPost => {
                             <li><i class="fa-regular fa-clock"></i> ${post.posted_time}</li>
                         </ul>
                         <button id="${post.id}" class="btn bg-sky-400 rounded-full hover:bg-sky-700"><i class="fa-solid fa-envelope" style="color: #f5f7fa;"></i></button>
-                    </div>`   
+                    </div>`              
         postCard.appendChild(postCards);
-        
-
         
 
         document.getElementById(post.id).addEventListener('click',function(){
@@ -63,20 +59,27 @@ const displayPost = allPost => {
             const markAsReadBtn = parseInt(markRead);
             markAsRead.innerText = markAsReadBtn + 1;
         })
-
     })
-    
-
-    
-    
-    
+    // off loading spinner
+    toogleLoadingSpiner(false);
 }
 
 // handle search btn
 const handleBtn = ()=>{
+    toogleLoadingSpiner(true);
     const searchValue = document.getElementById('search-post')
     const searchText = searchValue.value;
     loadPost(searchText);
 }
 
-// loadPost();
+// loading spinner
+const toogleLoadingSpiner = (isLoading)=>{
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if(isLoading){
+        loadingSpinner.classList.remove('hidden');
+    }
+    else{
+        loadingSpinner.classList.add('hidden')
+    }
+    
+}
